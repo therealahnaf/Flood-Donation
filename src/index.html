@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fund for Flood Victims</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <header>
+            <h1 class="text-center mb-4" id="scrap">Help Flood Victims</h1>
+          </header>
+
+          <nav id="navigation" class="mb-4">
+            <button class="segmentName" onclick="App.clickNav(0);" id="b0">
+              Register
+            </button>
+            <button class="spacer"></button>
+            <button class="segmentName" onclick="App.clickNav(1);" id="b1">
+              Donate
+            </button>
+            <button class="spacer"></button>
+            <button class="segmentName" onclick="App.clickNav(2);" id="b2">
+              Donation Info
+            </button>
+            <button class="spacer"></button>
+            <button class="segmentName" onclick="App.clickNav(3);" id="b3">
+              Donor Info
+            </button>
+          </nav>
+
+          <section id="loader">
+            <p id="loader-msg" class="text-center">Connecting...</p>
+          </section>
+
+          <section id="content" style="display: none">
+            <div class="segment" id="s0">
+              <h3>Register For Donation</h3>
+              <hr />
+              <form onsubmit="App.DonorRegistration(); return false;">
+                <label for="newUserName">Your Name:</label>
+                <input
+                  type="text"
+                  id="newUserName"
+                  placeholder="Enter your name.."
+                  required
+                />
+
+                <label for="newUserPhone">Phone no:</label>
+                <input
+                  type="text"
+                  id="newUserPhone"
+                  placeholder="Enter your phone number.."
+                  required
+                />
+
+                <button class="btn-success" type="submit">Register Now</button>
+              </form>
+            </div>
+
+            <div class="segment" id="s1" style="display: none">
+              <h3>Donate Here</h3>
+              <hr />
+              <form onsubmit="App.Donate(); return false;">
+                <label for="userPhone">Phone no:</label>
+                <input
+                  type="text"
+                  id="userPhone"
+                  placeholder="Enter your phone number.."
+                  required
+                />
+
+                <label for="zoneSelect">Donation Zone:</label>
+                <select id="zoneSelect">
+                  <option value="sylhet">Sylhet Zone</option>
+                  <option value="chittagong_south">
+                    Chittagong South Zone
+                  </option>
+                  <option value="chittagong_north">
+                    Chittagong North Zone
+                  </option>
+                </select>
+
+                <button class="btn-success" type="submit">
+                  Click here to donate!
+                </button>
+              </form>
+            </div>
+
+            <div class="segment" id="s2" style="display: none">
+              <h3>Donation Info</h3>
+              <hr />
+              <form onsubmit="App.getDonationInfo(); return false;">
+                <button
+                  class="btn-success"
+                  type="submit"
+                  id="checkBalanceButton"
+                >
+                  Check Donation Info
+                </button>
+                <div id="donationInfo"></div>
+              </form>
+            </div>
+
+            <div class="segment" id="s3" style="display: none">
+              <h3>Donor Information</h3>
+              <hr />
+              <form onsubmit="App.getDonorInfo(); return false;">
+                <label for="userAccount">Account Address:</label>
+                <input
+                  type="text"
+                  id="userAccount"
+                  placeholder="Enter account address.."
+                  required
+                />
+
+                <button class="btn-success" type="submit">Check Info</button>
+                <div id="donorsInfo"></div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery and JS Plugins -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
